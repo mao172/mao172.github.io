@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- aframeフレームワークのjsを読み込む -->
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  
+  <title>A-Frame</title>
+</head>
+<body>
+    <a-scene>
+        <a-entity>
+            <a-sphere position="0 1 -4"
+                    color="#222"
+                    scale="1 1 1"
+                    shadow="receive: true"></a-sphere>
+            <a-animation  attribute="position"
+                          dur="3000"
+                          to="0 0.5 0"
+                          repeat="indefinite"
+                          direction="alternate">
+        </a-entity>
+        <a-plane position="0 0 -4"
+                 rotation="-90 0 0"
+                 width="4"
+                 height="4"
+                 color="#ccc"
+                 shadow="receive: true"></a-plane>
+        <a-entity light="type: directional; color: #fff; castShadow:true;"
+                  position="-10 10 10"></a-entity>
+    </a-scene>
+</body>
+</html>

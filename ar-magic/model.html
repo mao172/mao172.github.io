@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-assets>
+            <img id="ace-of-spade" src="aceOfSpade.png" />
+            <img id="card-back" src="cardBack.png" />
+        </a-assets>
+            <a-box position="0 0.5 0" width="0.5" height="0.5" depth="0.5" color="red" wireframe="true"></a-box>
+            <a-text position="0 0.5 -0.5" value="Hello World!" width="5" color="blue" align="center"></a-text>
+      
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" src="#ace-of-spade"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-sky color="#ECECEC"></a-sky>
+
+      <a-entity position="-2 0 -4" animation="property: rotation; dur: 3000; to: 0 0 180; dir: alternate; loop: true;">
+            <a-box position="2 0 0" rotation="-90 0 0" width="4" height="4" depth="0.01" color="#7BC8A4"
+            ></a-box>
+            </a-entity>
+
+    <a-entity position="0 2 -2" animation="property: rotation; dur: 2000; to: 0 180; dir: alternate; " >
+        <a-plane src="#card-back"  position="0 0 0" width="1" height="1.56"></a-plane>
+        <a-plane src="#ace-of-spade"  position="0 0 0" width="1" height="1.56" rotation="0 180 0"></a-plane>
+    </a-entity>
+
+    <a-entity position="0 0.5 0" animation="property: rotation; dur: 2000; to: 0 0 180; dir: alternate; " >
+            <a-plane src="#card-back"  position="0 0 0" width="1" height="1.56" rotation="-90 0 0"></a-plane>
+            <a-plane src="#ace-of-spade"  position="0 0 0" width="1" height="1.56" rotation="90 180 0"></a-plane>
+    </a-entity>
+
+      <a-box position="0 0 -4" rotation="-90 0 0" width="4" height="4" depth="0.01" color="#7BC8A4"
+      animation="property: rotation; to: 90 180 0; dur: 1500; easing: linear"></a-box>
+
+      <a-text position="0 2 -2" rotation="0 -180 0" value="A" width="5" color="blue" align="center"
+      animation="property: rotation; to: 0 0 0; dur: 1500; easing: linear"></a-text>
+
+      <a-camera position="0 2 1" rotation="0 0 0"></a-camera>
+    </a-scene>
+  </body>
+</html>
