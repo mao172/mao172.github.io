@@ -5,6 +5,23 @@
 <!-- AR.jsを読み込み -->
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 
+<script>
+        AFRAME.registerComponent('registerevents', {
+            init: function () {
+                var marker = this.el;
+    
+                // マーカーを検出したイベントの登録
+                marker.addEventListener('markerFound', function () {
+                    var markerId = marker.id;
+                    console.log('markerFound', markerId);
+    
+                    // アニメーションの開始
+                    document.querySelector('#box').emit('markerfound');
+                });
+            }
+        });
+</script>
+
 <body style="margin : 0px; overflow: hidden">
   <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
   <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
@@ -14,7 +31,7 @@
     </a-assets>
     
     <!-- a-markerのtypeにpatternを設定, 作ったpattファイルをurlにを指定 -->
-    <a-marker type="pattern" url="pattern-marker.patt">
+    <a-marker type="pattern" url="pattern-marker.patt" emitevents="true">
 
             <a-entity position="0 0.0015 -0.5"  
             animation="property: rotation; dur: 2000; to: -90 0 0; dir: alternate;  delay: 1000; startEvents: markerFound;" >
