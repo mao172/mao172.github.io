@@ -17,7 +17,7 @@
     <a-marker type="pattern" url="pattern-marker.patt">
 
             <a-entity position="0 0.0015 -0.5"  
-            animation="property: rotation; dur: 2000; to: -90 0 0; dir: alternate;  delay: 1000;" >
+            animation="property: rotation; dur: 2000; to: -90 0 0; dir: alternate;  delay: 1000; startEvents: markerFound;" >
                     <a-plane position="0 0 0.5" rotation="-90 0 0" width="1.5" height="1" depth="0.01" color="#7BC8A4" ></a-plane>
                     <a-plane position="0 0 0.5" rotation="90 0 0" width="1.5" height="1" depth="0.01" color="#7BC8A4" ></a-plane>
 
@@ -102,10 +102,10 @@
             animation__3="property: rotation; dur: 2000; to: 0 180 0; dir: alternate; delay: 5000;"
              >
                     <a-plane src="#card-back"  position="0 0 0" width="1" height="1.56" rotation="0 0 0"
-                    animation="property: rotation; dur: 3000; to: 60 0 0; dir: alternate; delay: 6000;"
+                    animation="property: rotation; dur: 3000; to: 60 0 0; dir: alternate; delay: 5000;"
                     ></a-plane>
                     <a-plane src="#ace-of-spade"  position="0 0 0" width="1" height="1.56" rotation="0 180 0"
-                    animation="property: rotation; dur: 3000; to: -60 180 0; dir: alternate; delay: 6000;"
+                    animation="property: rotation; dur: 3000; to: -60 180 0; dir: alternate; delay: 5000;"
                     ></a-plane>
             </a-entity>
 
