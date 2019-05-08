@@ -1,0 +1,117 @@
+<!doctype HTML>
+<html>
+<!-- A-Frameを読み込み -->
+<script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+<!-- AR.jsを読み込み -->
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+
+<body style="margin : 0px; overflow: hidden">
+  <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
+  <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
+    <a-assets>
+        <img id="ace-of-spade" src="aceOfSpade.png" />
+        <img id="card-back" src="cardBack.png" />
+    </a-assets>
+    
+    <!-- a-markerのtypeにpatternを設定, 作ったpattファイルをurlにを指定 -->
+    <a-marker type="pattern" url="pattern-marker.patt">
+            <a-plane position="0 0 0" rotation="-90 0 0" width="1.5" height="1" depth="0.01" color="#7BC8A4" ></a-plane>
+
+            <a-entity position="0 0.0015 -0.5"  
+            animation="property: rotation; dur: 2000; to: -90 0 0; dir: alternate;  delay: 1000;" >
+                    <a-plane position="0 0 0.5" rotation="-90 0 0" width="1.5" height="1" depth="0.01" color="#7BC8A4" ></a-plane>
+                    <a-plane position="0 0 0.5" rotation="90 0 0" width="1.5" height="1" depth="0.01" color="#7BC8A4" ></a-plane>
+
+            </a-entity>
+<!--
+
+            <a-box position="0 0 0" width="0.5" height="0.001" depth="0.5" color="red" wireframe="true"
+            animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+            animation__2="property: position; dur: 2000; to: 0 0.25 0; dir: alternate;  delay: 2000;"
+            ></a-box>
+-->
+
+            <a-entity >
+                <a-plane position="0 0 0.25" width="0.5" height="0.001" rotation="0 0 0" color="red" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: 0 0.25 0.25; dir: alternate;  delay: 2000;"
+                    ></a-plane>
+                <a-plane position="0 0 0.25" width="0.5" height="0.001" rotation="0 180 0" color="#EF2D5E" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: 0 0.25 0.25; dir: alternate;  delay: 2000;"
+                ></a-plane>
+
+                <a-plane position="0 0 -0.25" width="0.5" height="0.001" rotation="0 180 0" color="red" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: 0 0.25 -0.25; dir: alternate;  delay: 2000;"
+                ></a-plane>
+                <a-plane position="0 0 -0.25" width="0.5" height="0.001" rotation="0 0 0" color="#EF2D5E" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: 0 0.25 -0.25; dir: alternate;  delay: 2000;"
+                ></a-plane>
+
+                <a-plane position="0.25 0 0" width="0.5" height="0.001" rotation="0 90 0" color="red" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: 0.25 0.25 0; dir: alternate;  delay: 2000;"
+                ></a-plane>
+                <a-plane position="0.25 0 0" width="0.5" height="0.001" rotation="0 -90 0" color="#EF2D5E" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: 0.25 0.25 0; dir: alternate;  delay: 2000;"
+                ></a-plane>
+
+                <a-plane position="-0.25 0 0" width="0.5" height="0.001" rotation="0 -90 0" color="red" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: -0.25 0.25 0; dir: alternate;  delay: 2000;"
+                ></a-plane>
+                <a-plane position="-0.25 0 0" width="0.5" height="0.001" rotation="0 90 0" color="#EF2D5E" 
+                animation="property: height; dur: 2000; to: 0.5; dir: alternate;  delay: 2000;"
+                animation__2="property: position; dur: 2000; to: -0.25 0.25 0; dir: alternate;  delay: 2000;"
+                ></a-plane>
+
+                <a-plane position="0 0 0" width="0.5" height="0.5" rotation="-90 0 0" color="#EF2D5E" ></a-plane>
+
+                <!--
+
+                <a-plane position="0 0.001 0" width="0.5" height="0.5" rotation="-90 0 0" color="red" 
+                animation="property: position; dur: 2000; to: 0 0.5 0; dir: alternate;  delay: 2000;"
+                ></a-plane>
+                -->
+
+                <a-entity position="0 0.001 0"
+                animation="property: position; dur: 2000; to: 0 0.5 0; dir: alternate;  delay: 2000;">
+                    <a-entity position="0.25 0 0"
+                    animation="property: rotation; dur: 2000; to: 0 0 -180; dir: alternate; loop:0; delay: 3000;">
+                        <a-plane position="-0.125 0 0" width="0.25" height="0.5" rotation="-90 0 0" color="red" 
+                        ></a-plane>
+                        <a-plane position="-0.125 0 0" width="0.25" height="0.5" rotation="90 180 0" color="#EF2D5E" 
+                        ></a-plane>
+                    </a-entity>
+                    <a-entity position="-0.25 0 0"
+                    animation="property: rotation; dur: 2000; to: 0 0 180; dir: alternate; loop:0; delay: 3000;">
+                    >
+                        <a-plane position="0.125 0 0" width="0.25" height="0.5" rotation="-90 0 0" color="red" 
+                        ></a-plane>
+                        <a-plane position="0.125 0 0" width="0.25" height="0.5" rotation="90 180 0" color="#EF2D5E" 
+                        ></a-plane>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+
+            <a-entity position="0 0.001 0" scale="0.005 0.005 0.005"
+            animation="property: position; dur: 2000; to: 0 1 0; dir: alternate; delay: 4000;"
+            animation__2="property: scale; dur: 5000; to: 1 1 1; dir: alternate; delay: 4000;"
+            animation__3="property: rotation; dur: 2000; to: 0 180 0; dir: alternate; delay: 5000;"
+             >
+                    <a-plane src="#card-back"  position="0 0 0" width="1" height="1.56" rotation="0 0 0"
+                    animation="property: rotation; dur: 3000; to: 60 0 0; dir: alternate; delay: 6000;"
+                    ></a-plane>
+                    <a-plane src="#ace-of-spade"  position="0 0 0" width="1" height="1.56" rotation="0 180 0"
+                    animation="property: rotation; dur: 3000; to: -60 180 0; dir: alternate; delay: 6000;"
+                    ></a-plane>
+            </a-entity>
+        </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+
+</html>
