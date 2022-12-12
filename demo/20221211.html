@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scrollmagic demo - 20221211</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            scroll-margin-top: 0px;
+        }
+
+        .page {
+            display: block;
+            position: relative;
+            box-sizing: border-box;
+
+            width: 100%;
+            height: 100vh;
+            /* border: 1px solid #666464; */
+
+            padding: 16px 16px;
+
+        }
+
+        .side-bar {
+            position: fixed;
+            width: 200px;
+            height: 100vh;
+
+            color: white;
+
+            z-index: 10;
+        }
+
+        .side-bar .background {
+            display: block;
+            box-sizing: border-box;
+            position: absolute;
+            width: 5em;
+            height: 100vh;
+            background: rgba(0, 0, 0, .14);
+        }
+
+        .side-bar .navigation {
+            display: block;
+            box-sizing: border-box;
+            width: 200px;
+
+            position: absolute;
+            top: 50%;
+            margin-top: -160px;
+        }
+
+        .navigation a {
+            color: white;
+            display: block;
+            box-sizing: border-box;
+            padding: 1.5em 1em;
+            position: relative;
+            /* font-size: 1em; */
+            /* line-height: 1.2em; */
+            /* border:1px solid black; */
+            width: 5em;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: all 0.6s;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+            border-color: rgba(0, 0, 0, .0);
+            /* z-index: 10; */
+
+        }
+
+        .navigation ul li:first-of-type a {
+            border-top: 1px solid rgba(0, 0, 0, .0);
+        }
+
+        .navigation a::before {
+            content: "";
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            top: 4px;
+            width: 1.2em;
+            height: 1.2em;
+            border: 3px solid white;
+            border-radius: 0.6em;
+            margin-left: 1em;
+            margin-right: 3em;
+        }
+
+        .navigation a:hover,
+        .navigation a:focus,
+        .navigation a:active {
+            /* background: rgba(0,0,0,.28); */
+            background-color: #F7AB00;
+            border-bottom: 1px solid white;
+            border-right: 1px solid white;
+            color: white;
+            width: 200px;
+        }
+
+        .navigation a:hover::before {
+            /* border: 3px solid #F7AB00; */
+            /* background-color: #F7AB00; */
+            /* background-color: white; */
+        }
+
+        .navigation a.current {
+
+            /* background-color: #F7AB00;
+            border-bottom: 1px solid white;
+            border-right: 1px solid white;
+            color: white; */
+        }
+
+        .navigation a.current::before {
+            background-color: white;
+
+        }
+
+        .navigation li {
+            position: relative;
+        }
+
+        .navigation li:has(a.current)::before {
+            content: "";
+            display: block;
+            position: absolute;
+            box-sizing: border-box;
+            width: 3em;
+            height: 4.5em;
+            overflow: hidden;
+            top: 0px;
+            left: 5em;
+            border-left: 1em solid rgba(0, 0, 0, .14);
+            border-top: 2.25em solid transparent;
+            border-bottom: 2.25em solid transparent;
+            /* z-index: 10; */
+        }
+
+        .navigation li:has(a.current:hover)::before {
+            /* border-color: #F7AB00; */
+            /* opacity: 0; */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="side-bar">
+        <div class="background"></div>
+        <div class="navigation">
+
+            <ul>
+                <li><a href="#top" class="">TOP</a></li>
+                <li><a href="#page-one" class="">PAGE-1</a></li>
+                <li><a href="#page-two" class="">PAGE-2</a></li>
+                <li><a href="#page-three" class="">PAGE-3</a></li>
+                <li><a href="#contact" class="">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="first-view" class="page " style="background-color: #666464; color:white;">
+        <h1>FIRST VIEW</h1>
+    </section>
+    <section id="page-one" class="page " style="background-color: white; color:#666464;">
+        <h1>PAGE-1</h1>
+    </section>
+    <section id="page-two" class="page " style="background-color: #eee; color: #666464;">
+        <h1>PAGE-2</h1>
+    </section>
+    <section id="page-three" class="page " style="background-color: #F7AB00; color:white;">
+        <h1>PAGE-3</h1>
+
+    </section>
+    <section id="contact" class="page " style="background-color: #666464; color:white;">
+        <h1>CONTACT</h1>
+    </section>
+
+    <footer>
+        footer
+    </footer>
+
+    <script>
+        jQuery(function () {
+
+            (function ($) {
+
+                $(document).on('click', "a[href='#top']", function () {
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    $(this).blur();
+                    return false;
+                });
+
+                $(document).on('click', "a[href='#contact']", function () {
+                    let top = $("#contact").offset().top;
+
+                    $("html, body").animate({ scrollTop: top }, "slow");
+                    $(this).blur();
+                    return false;
+                });
+
+                $(document).on('click', "a[href='#page-one']", function () {
+                    let top = $("#page-one").offset().top;
+
+                    $("html, body").animate({ scrollTop: top }, "slow");
+                    $(this).blur();
+                    return false;
+                });
+
+                $(document).on('click', "a[href='#page-two']", function () {
+                    let top = $("#page-two").offset().top;
+
+                    $("html, body").animate({ scrollTop: top }, "slow");
+                    $(this).blur();
+                    return false;
+                });
+
+                $(document).on('click', "a[href='#page-three']", function () {
+                    let top = $("#page-three").offset().top;
+
+                    $("html, body").animate({ scrollTop: top }, "slow");
+                    $(this).blur();
+                    return false;
+                });
+
+                // init controller
+                let controller = new ScrollMagic.Controller({
+                    globalSceneOptions: {
+                        // triggerHook: 'onLeave',
+                        duration: "100%"
+                    }
+                });
+
+                $('section.page').each(function (index, element) {
+
+                    let ancher = $('.navigation a').get(index);
+
+                    let s = new ScrollMagic.Scene({
+                        triggerElement: element
+                    }).addTo(controller)
+                        .addIndicators()
+                        .setClassToggle(ancher, 'current')
+                        ;
+                });
+
+            })(jQuery);
+
+        });
+    </script>
+</body>
+
+</html>
